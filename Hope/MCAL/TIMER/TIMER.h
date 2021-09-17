@@ -28,7 +28,7 @@ typedef enum{
 /*****************************TIMER0*********************************************/
 typedef enum{
 	
-	TIMER0_OVERFLOW,
+	TIMER0_OVERFLOW = 0,
 	TIMER0_PHASE_CORRECTION_PWM,
 	TIMER0_CTC,	
 	TIMER0_FAST_PWM
@@ -37,7 +37,7 @@ typedef enum{
 
 typedef enum {
 
-	TIMER0_STOP,
+	TIMER0_STOP = 0,
 	TIMER0_PRESCALER_NORMAL,
 	TIMER0_PRESCALER_8,
 	TIMER0_PRESCALER_64,

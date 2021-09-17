@@ -10,7 +10,7 @@
 #define MEM_MAP_H_
 #include "../helpers/stdtypes.h"
 
-
+#define VECTOR(n) __vector_##n
 /* DIO_Registers */
 #define DDRA (*(volatile uint8*)0x3A)
 #define DDRB (*(volatile uint8*)0x37)
@@ -123,22 +123,42 @@ Interrupt Sensing Control (ISC)
 #define TCNT1L (*((volatile uint8*)0x4C))
 #define OCR1AH (*((volatile uint8*)0x4B))
 #define OCR1AL (*((volatile uint8*)0x4A))
-#define OCR1BH (*((volatile uint8*)0x40)) 
-#define OCR1BL (*((volatile uint8*)0x39))
-#define ICR1H  (*((volatile uint8*)0x38))
-#define ICR1L  (*((volatile uint8*)0x37))     
+#define OCR1BH (*((volatile uint8*)0x49)) 
+#define OCR1BL (*((volatile uint8*)0x48))
+#define ICR1H  (*((volatile uint8*)0x47))
+#define ICR1L  (*((volatile uint8*)0x46))     
 
 
 //Timer interrupt vectors
-#define TIMER2_COMP   __vector_5 
-#define TIMER2_OVF    __vector_6
-#define TIMER1_CAPT   __vector_7
-#define TIMER1_COMPA  __vector_8
-#define TIMER1_COMPB  __vector_9
-#define TIMER1_OVF    __vector_10
-#define TIMER0_COMP   __vector_11
-#define TIMER0_OVF    __vector_12
+#define TIMER2_COMP   __vector_4 
+#define TIMER2_OVF    __vector_5
+#define TIMER1_CAPT   __vector_6
+#define TIMER1_COMPA  __vector_7
+#define TIMER1_COMPB  __vector_8
+#define TIMER1_OVF    __vector_9
+#define TIMER0_COMP   __vector_10
+#define TIMER0_OVF    __vector_11
 
+
+
+/*********************************** ADC **********************************/
+#define ADMUX (*(volatile unsigned char*)0x27)
+	#define ADLAR 5
+	#define REFS0 6
+	#define REFS1 7
+
+#define ADCSRA (*(volatile unsigned char*)0x26)
+	#define ADPS0 0
+	#define ADPS1 1
+	#define ADPS2 2
+	#define ADIE  3
+	#define ADIF  4
+	#define ADATE 5
+	#define ADSC  6
+	#define ADEN  7
+
+#define ADCL (*(volatile unsigned char*)0x24)
+#define ADCH (*(volatile unsigned char*)0x25)
 
 /*interrupt functions*/
 

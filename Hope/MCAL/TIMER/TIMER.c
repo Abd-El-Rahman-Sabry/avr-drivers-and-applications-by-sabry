@@ -10,12 +10,8 @@ static volatile uint16 scaler0;
 static volatile uint16 scaler1;
 
 
-static void(*functions[STACK_SIZE])(void);
-static uint8 stk_pointer = 0;
-
-
-static void (*timer0_overflow_isr)(void) = NULLPTR;
-static void (*timer0_compare_isr)(void)  = NULLPTR;
+static void (*timer0_overflow_isr)(void) ;
+static void (*timer0_compare_isr)(void)  ;
 static void (*timer1_overflow_isr)(void) = NULLPTR;
 static void (*timer1_compare_a_isr)(void)  = NULLPTR;
 static void (*timer1_compare_b_isr)(void)  = NULLPTR;
@@ -30,7 +26,7 @@ void TIMER0_init(TIMER0_mode_t mode , TIMER0_prescale_t pres , TIMER0_compare_ou
 	}
 	
 	// Setting prescaler
-	TIMER0_PRESCALAR_ADJ(pres);
+	TIMER0_PRESCALAR_ADJ((uint8)pres);
 	scaler0 = pres;
 	
 	/*setting timer0 mode 
@@ -119,10 +115,7 @@ void TIMER0_output_compare_interrupt_disable()
 
 void TIMER0_set_overflow_callback(void (*isr)(void))
 {
-	if(isr != NULLPTR)
-	{
-		timer0_overflow_isr = isr;
-	} 
+		timer0_overflow_isr = isr; 
 }
 void TIMER0_set_compare_callback(void (*isr)(void))
 {
@@ -138,13 +131,16 @@ void TIMER0_set_compare_callback(void (*isr)(void))
 
 void TIMER1_init(TIMER0_mode_t mode , TIMER1_prescale_t pres)
 {
+
+	TIMER1_PRESCALAR_ADJ(pres);
 	//setting mode 
 	WRITE_BIT(TCCR1A ,WGM10 , GET_BIT( (mode) , 0 ));
 	WRITE_BIT(TCCR1A ,WGM11 , GET_BIT( (mode) , 1 ));
 	WRITE_BIT(TCCR1B ,WGM12 , GET_BIT( (mode) , 2 ));
 	WRITE_BIT(TCCR1B ,WGM13 , GET_BIT( (mode) , 3 ));
 	
-	TIMER1_PRESCALAR_ADJ(pres);
+	
+	
 	scaler1 = pres;
 	
 }
@@ -206,28 +202,25 @@ void TIMER1B_set_compare_output_mode(TIMER1_compare_output_mode_t mode)
 
 void TIMER1_reload(uint16 val){
 	TCNT1L = val;
-	TCNT1H = val>>8;
 }
 
 
 void TIMER1_compare_A_reload(uint16 val)
 {
 	OCR1AL = val;
-	OCR1AH = val>>8;
 }
 
 
 void TIMER1_compare_B_reload(uint16 val)
 {
-		OCR1BL = val;
-		OCR1BH = val>>8;
+	OCR1BL = val;
+
 }
 
 
 void TIMER1_icu_reload(uint16 val)
 {
 	ICR1L = val;
-	ICR1H = val>>8;
 	
 }
 
@@ -325,13 +318,13 @@ void TIMER1_set_input_compare_callback(void (*isr)(void))
 }
 
 
-ISR(TIMER0_OVF)
+/*ISR(TIMER0_OVF)
 {
 	if(timer0_overflow_isr != NULLPTR)
 	{	
 		timer0_overflow_isr();
 	}
-}
+}*/
 ISR(TIMER0_COMP)
 {
 	if(timer0_compare_isr != NULLPTR)
@@ -378,7 +371,7 @@ ISR(TIMER1_CAPT)
 void TIMER1_periodic_ms(uint16 time,void (*fp)(void))
 {
 	TIMER1_reload(0);
-	TIMER1_init(TIMER1_CTC , TIMER1_PRESCALER_NORMAL);
+	TIMER1_init(TIMER1_CTC , TIMER1_PRESCALER_1024);
 	TIMER1_compare_A_reload((uint16)(time*1000));
 	TIMER1_set_compare_a_callback(fp);
 }
