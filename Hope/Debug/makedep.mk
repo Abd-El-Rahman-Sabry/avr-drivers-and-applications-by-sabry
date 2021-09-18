@@ -4,6 +4,8 @@
 
 HAL\LCD\LCD.c
 
+HAL\LM35\LM35.c
+
 main.c
 
 MCAL\ADC\ADC.c

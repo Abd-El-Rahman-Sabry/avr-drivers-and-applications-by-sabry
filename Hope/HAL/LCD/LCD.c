@@ -229,7 +229,7 @@ void LCD_clear()
 	lcd_write_command(0x01);
 	_delay_ms(2);
 }
-void LCD_write_string(uint8 *str)
+void LCD_write_string(sint8 *str)
 {
 	uint8 c = 0;
 	while ( str[c] )

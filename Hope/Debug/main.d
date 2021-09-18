@@ -19,7 +19,9 @@ main.d main.o: .././main.c .././MCAL/GPIO/GPIO.h \
  .././HAL/LCD/LCD_config.h .././MCAL/ADC/ADC.h \
  .././MCAL/ADC/../../helpers/stdtypes.h \
  .././MCAL/ADC/../../helpers/utils.h \
- .././MCAL/ADC/../../MCAL_REG/mem_map.h
+ .././MCAL/ADC/../../MCAL_REG/mem_map.h .././HAL/LM35/LM35.h \
+ .././HAL/LM35/../../MCAL/ADC/ADC.h \
+ .././HAL/LM35/../../helpers/stdtypes.h
 
 .././MCAL/GPIO/GPIO.h:
 
@@ -72,3 +74,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././MCAL/ADC/../../helpers/utils.h:
 
 .././MCAL/ADC/../../MCAL_REG/mem_map.h:
+
+.././HAL/LM35/LM35.h:
+
+.././HAL/LM35/../../MCAL/ADC/ADC.h:
+
+.././HAL/LM35/../../helpers/stdtypes.h:
