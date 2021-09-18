@@ -14,9 +14,26 @@
 #define LCD_8BIT_MODE 2
 
 
-/*********************************MODE SELECTION************************************/
+/************************************************************************/
+/*							CONTROL PANAL                               */
+/************************************************************************/
 
-#define LCD_CURRENT_MODE LCD_8BIT_MODE
+/**** Mode selection *************/
+
+#define	LCD_CURRENT_MODE		LCD_8BIT_MODE
+
+/**** Configuration for Rs *******/
+#define LCD_COMMAND_SELECT  0
+#define LCD_DATA_SELECT		1
+
+/**** Configuration for Rw *******/
+#define LCD_WRITE			0
+#define LCD_READ			1
+
+
+
+
+
 
 /**********************************************************************************/
 
@@ -24,9 +41,9 @@
 /***** 4BIT SAME PORT MODE ***/
 
 
-
+/**********************************************************************************/
 #if   LCD_CURRENT_MODE == LCD_4BIT_MODE_SAME_PORT
-	
+
 	#define LCD_DATA_PORT GPIO_C
 	#define DB4 0
 	#define DB5 1
@@ -36,7 +53,17 @@
 	#define RS  4
 	#define RW  5
 	#define EN  6 
+	
+	
+	
+	
+/**********************************************************************************/
 
+
+/***** 4BIT MODE DIFFERENT PORT ***/
+
+
+/**********************************************************************************/
 #elif LCD_CURRENT_MODE == LCD_4BIT_MODE_DIFFERENT_PORT
 	#define LCD_DATA_PORT		GPIO_C
 	#define LCD_CONTROL_PORT	GPIO_C
@@ -48,6 +75,18 @@
 	#define RS  4
 	#define RW  5
 	#define EN  6
+	
+	
+	
+
+/**********************************************************************************/
+
+
+/***** 8BIT MODE DIFFERENT PORT ***/
+
+
+/**********************************************************************************/
+
 #elif LCD_CURRENT_MODE == LCD_8BIT_MODE
 	#define LCD_DATA_PORT		GPIO_C
 	#define LCD_CONTROL_PORT	GPIO_D

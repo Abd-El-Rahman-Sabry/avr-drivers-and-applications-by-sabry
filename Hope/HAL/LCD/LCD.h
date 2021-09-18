@@ -12,11 +12,7 @@
 #include "LCD_config.h"
 
 
-#define LCD_COMMAND_SELECT  0
-#define LCD_DATA_SELECT		1
 
-#define LCD_WRITE			0
-#define LCD_READ			1
 
 #define MAX_COL 16
 #define MAX_ROW 2

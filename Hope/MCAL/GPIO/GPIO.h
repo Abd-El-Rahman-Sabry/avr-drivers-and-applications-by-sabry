@@ -83,7 +83,8 @@ uint8 GPIO_read_port(GPIO_port_name_t reg);
  
 GPIO_state_t GPIO_enable_pull_up_res(GPIO_port_name_t reg , uint8 pin);
 GPIO_state_t GPIO_disable_pull_up_res(GPIO_port_name_t reg , uint8 pin);
-
+void GPIO_disable_all_pull_up_res();
+void GPIO_enable_all_pull_up_res();
 #endif /* GPIO_H_ */
 
 //ERROR MACROS

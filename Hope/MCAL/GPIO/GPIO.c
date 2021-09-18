@@ -173,4 +173,11 @@ GPIO_state_t GPIO_disable_pull_up_res(GPIO_port_name_t reg , uint8 pin)
 		return state;
 }
 
-
+void GPIO_disable_all_pull_up_res()
+{
+	SET_BIT(SFIOR , PUD);
+}
+void GPIO_enable_all_pull_up_res()
+{
+	CLEAR_BIT(SFIOR , PUD);
+}

@@ -16,7 +16,10 @@ main.d main.o: .././main.c .././MCAL/GPIO/GPIO.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- .././HAL/LCD/LCD_config.h
+ .././HAL/LCD/LCD_config.h .././MCAL/ADC/ADC.h \
+ .././MCAL/ADC/../../helpers/stdtypes.h \
+ .././MCAL/ADC/../../helpers/utils.h \
+ .././MCAL/ADC/../../MCAL_REG/mem_map.h
 
 .././MCAL/GPIO/GPIO.h:
 
@@ -61,3 +64,11 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
 .././HAL/LCD/LCD_config.h:
+
+.././MCAL/ADC/ADC.h:
+
+.././MCAL/ADC/../../helpers/stdtypes.h:
+
+.././MCAL/ADC/../../helpers/utils.h:
+
+.././MCAL/ADC/../../MCAL_REG/mem_map.h:
