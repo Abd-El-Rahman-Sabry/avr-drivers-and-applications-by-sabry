@@ -5,7 +5,7 @@ main.d main.o: .././main.c .././MCAL/GPIO/GPIO.h \
  .././MCAL/GPIO/../../MCAL_REG/../helpers/stdtypes.h \
  .././MCAL/INT/EXT_INT.h .././MCAL/INT/../../MCAL_REG/mem_map.h \
  .././MCAL/INT/../../helpers/stdtypes.h \
- .././MCAL/INT/../../helpers/utils.h .././MCAL/TIMER/TIMER0.h \
+ .././MCAL/INT/../../helpers/utils.h .././MCAL/TIMER/TIMER.h \
  .././MCAL/TIMER/../../helpers/stdtypes.h \
  .././MCAL/TIMER/../../helpers/utils.h \
  .././MCAL/TIMER/../../MCAL_REG/mem_map.h .././HAL/LCD/LCD.h \
@@ -41,7 +41,7 @@ main.d main.o: .././main.c .././MCAL/GPIO/GPIO.h \
 
 .././MCAL/INT/../../helpers/utils.h:
 
-.././MCAL/TIMER/TIMER0.h:
+.././MCAL/TIMER/TIMER.h:
 
 .././MCAL/TIMER/../../helpers/stdtypes.h:
 

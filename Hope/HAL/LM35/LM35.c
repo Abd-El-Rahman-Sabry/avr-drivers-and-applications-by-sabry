@@ -26,6 +26,6 @@ uint16 LM35_Get_Temperature()
 	}
 	else if(vr == Internal_2560mV)
 	{
-		return (data*2.56/10);
+		return (data*2.5/10);
 	}
 }

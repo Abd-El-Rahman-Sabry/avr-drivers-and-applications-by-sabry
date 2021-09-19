@@ -23,7 +23,7 @@
 
 /**** Mode selection *************/
 
-#define	LCD_CURRENT_MODE		LCD_8BIT_MODE
+#define	LCD_CURRENT_MODE		LCD_4BIT_MODE_SAME_PORT
 
 /**** Configuration for Rs *******/
 #define LCD_COMMAND_SELECT  0

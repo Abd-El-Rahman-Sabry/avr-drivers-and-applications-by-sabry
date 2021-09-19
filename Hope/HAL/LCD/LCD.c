@@ -82,7 +82,7 @@ void LCD_Init()
 	_delay_ms(2);
 	lcd_write_command(0x02);
 	_delay_ms(2);
-	lcd_write_command(0x0E);
+	lcd_write_command(0x0C);
 	_delay_us(100);
 }
 
@@ -159,7 +159,7 @@ void LCD_Init()
 	_delay_ms(2);
 	lcd_write_command(0x02);
 	_delay_ms(2);
-	lcd_write_command(0x0E);
+	lcd_write_command(0x0C);
 	_delay_us(100);
 }
 
@@ -202,7 +202,7 @@ void LCD_Init()
 	_delay_ms(15);
 	lcd_write_command(0x38);
 	_delay_us(100);
-	lcd_write_command(0x0E);
+	lcd_write_command(0x0C);
 	_delay_us(100);
 	lcd_write_command(0x01);
 	_delay_ms(2);
