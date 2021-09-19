@@ -1,9 +1,9 @@
-/*****************************************************
-*Author :Moatasem
-*Date:   12/10/2018
-*Version: v02
-*Brief: LCD COMPONENT
-*******************************************************/
+/*
+ * LCD.h
+ *
+ * Created: 9/17/2021 6:18:07 PM
+ *  Author: Abd-El-Rahman Sabry
+ */ 
 #ifndef LCD_H_
 #define LCD_H_
 
