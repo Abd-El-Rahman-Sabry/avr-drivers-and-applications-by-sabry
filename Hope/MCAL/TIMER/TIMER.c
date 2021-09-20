@@ -207,14 +207,15 @@ void TIMER1_reload(uint16 val){
 
 void TIMER1_compare_A_reload(uint16 val)
 {
-	OCR1AL = val;
+	OCR1AL = (uint8)val;
+	OCR1AH = (uint8)(val>>8);
 }
 
 
 void TIMER1_compare_B_reload(uint16 val)
 {
-	OCR1BL = val;
-
+	OCR1BL = (uint8)val;
+	OCR1BH = (uint8)(val>>8);
 }
 
 

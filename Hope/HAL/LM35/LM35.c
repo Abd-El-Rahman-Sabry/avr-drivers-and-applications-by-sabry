@@ -16,9 +16,10 @@ uint16 LM35_Get_Temperature()
 	if(lm_channel == -1)
 		return -1;
 	
-	uint16 data = 0;
+	
 	ADC_voltage_reference_t vr = ADC_get_current_vref();
-	data = ADC_read(lm_channel);
+	
+	uint16 data = ADC_read(lm_channel);
 	
 	if(vr == AVCC_pin_External_Cap_At_AREF_pin)
 	{
