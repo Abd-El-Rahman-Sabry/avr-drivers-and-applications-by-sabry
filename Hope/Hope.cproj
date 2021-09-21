@@ -120,6 +120,12 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="HAL\Button\button.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Button\button.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\LCD\LCD.c">
       <SubType>compile</SubType>
     </Compile>
@@ -174,6 +180,15 @@
     <Compile Include="MCAL\TIMER\TIMER0.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\UART\UART.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\UART\UART.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\UART\UART_config.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL_REG\mem_map.h">
       <SubType>compile</SubType>
     </Compile>
@@ -181,9 +196,11 @@
   <ItemGroup>
     <Folder Include="HAL\LCD" />
     <Folder Include="HAL\LM35" />
+    <Folder Include="HAL\Button" />
     <Folder Include="MCAL\GPIO\" />
     <Folder Include="MCAL\INT\" />
     <Folder Include="MCAL\ADC" />
+    <Folder Include="MCAL\UART" />
     <Folder Include="MCAL\TIMER" />
     <Folder Include="MCAL_REG" />
     <Folder Include="HAL" />

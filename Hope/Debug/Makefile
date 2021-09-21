@@ -35,9 +35,11 @@ LINKER_SCRIPT_DEP:=
 SUBDIRS :=  \
 ../HAL/LCD \
 ../HAL/LM35 \
+../HAL/Button \
 ../MCAL/GPIO/ \
 ../MCAL/INT/ \
 ../MCAL/ADC \
+../MCAL/UART \
 ../MCAL/TIMER \
 ../MCAL_REG \
 ../HAL \
@@ -48,6 +50,7 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../HAL/Button/button.c \
 ../HAL/LCD/LCD.c \
 ../HAL/LM35/LM35.c \
 ../main.c \
@@ -55,7 +58,8 @@ C_SRCS +=  \
 ../MCAL/GPIO/GPIO.c \
 ../MCAL/INT/EXT_INT.c \
 ../MCAL/TIMER/TIMER.c \
-../MCAL/TIMER/TIMER0.c
+../MCAL/TIMER/TIMER0.c \
+../MCAL/UART/UART.c
 
 
 PREPROCESSING_SRCS += 
@@ -65,6 +69,7 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+HAL/Button/button.o \
 HAL/LCD/LCD.o \
 HAL/LM35/LM35.o \
 main.o \
@@ -72,9 +77,11 @@ MCAL/ADC/ADC.o \
 MCAL/GPIO/GPIO.o \
 MCAL/INT/EXT_INT.o \
 MCAL/TIMER/TIMER.o \
-MCAL/TIMER/TIMER0.o
+MCAL/TIMER/TIMER0.o \
+MCAL/UART/UART.o
 
 OBJS_AS_ARGS +=  \
+HAL/Button/button.o \
 HAL/LCD/LCD.o \
 HAL/LM35/LM35.o \
 main.o \
@@ -82,9 +89,11 @@ MCAL/ADC/ADC.o \
 MCAL/GPIO/GPIO.o \
 MCAL/INT/EXT_INT.o \
 MCAL/TIMER/TIMER.o \
-MCAL/TIMER/TIMER0.o
+MCAL/TIMER/TIMER0.o \
+MCAL/UART/UART.o
 
 C_DEPS +=  \
+HAL/Button/button.d \
 HAL/LCD/LCD.d \
 HAL/LM35/LM35.d \
 main.d \
@@ -92,9 +101,11 @@ MCAL/ADC/ADC.d \
 MCAL/GPIO/GPIO.d \
 MCAL/INT/EXT_INT.d \
 MCAL/TIMER/TIMER.d \
-MCAL/TIMER/TIMER0.d
+MCAL/TIMER/TIMER0.d \
+MCAL/UART/UART.d
 
 C_DEPS_AS_ARGS +=  \
+HAL/Button/button.d \
 HAL/LCD/LCD.d \
 HAL/LM35/LM35.d \
 main.d \
@@ -102,7 +113,8 @@ MCAL/ADC/ADC.d \
 MCAL/GPIO/GPIO.d \
 MCAL/INT/EXT_INT.d \
 MCAL/TIMER/TIMER.d \
-MCAL/TIMER/TIMER0.d
+MCAL/TIMER/TIMER0.d \
+MCAL/UART/UART.d
 
 OUTPUT_FILE_PATH +=Hope.elf
 
@@ -118,6 +130,13 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+HAL/Button/button.o: ../HAL/Button/button.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 HAL/LCD/LCD.o: ../HAL/LCD/LCD.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
@@ -168,6 +187,13 @@ MCAL/TIMER/TIMER.o: ../MCAL/TIMER/TIMER.c
 	
 
 MCAL/TIMER/TIMER0.o: ../MCAL/TIMER/TIMER0.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MCAL/UART/UART.o: ../MCAL/UART/UART.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+HAL\Button\button.c
+
 HAL\LCD\LCD.c
 
 HAL\LM35\LM35.c
@@ -17,4 +19,6 @@ MCAL\INT\EXT_INT.c
 MCAL\TIMER\TIMER.c
 
 MCAL\TIMER\TIMER0.c
+
+MCAL\UART\UART.c
 
