@@ -86,6 +86,21 @@ GPIO_state_t GPIO_write_pin(GPIO_port_name_t reg , uint8 pin , uint8 data)
 		}
 		return state;
 }
+
+GPIO_state_t GPIO_toggle_pin(GPIO_port_name_t reg , uint8 pin )
+{
+	GPIO_state_t state = SUCCESS;
+	if( NOT_VALID_PORT(reg) || NOT_VALID_PIN(pin) )
+	{
+		state = FAIL;
+	}
+	else
+	{
+		TOGGLE_BIT( (*(output_registers[reg])) , pin);
+	}
+	return state;
+}
+
 void GPIO_write_port(GPIO_port_name_t reg , uint8 data)
 {
 	if(NOT_VALID_PORT(reg))

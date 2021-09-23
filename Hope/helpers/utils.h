@@ -13,6 +13,7 @@
 
 #define WRITE_BIT(reg , bit , data)	(  reg  =  (reg& ~(1<<bit))  | (data<<bit)  )
 #define GET_BIT(reg , bit)		    ( ((reg)&(1<<bit))>>bit  )
+#define CHECK_BIT(reg , bit)		((reg) & (1<<bit) )
 #define TOGGLE_BIT(reg , bit)		(  reg  ^= (1<<bit)  )
 #define SET_BIT(reg , bit)			(  reg  |= (1<<bit)  )
 #define CLEAR_BIT(reg , bit)		(  reg  &=~(1<<bit)  )
@@ -51,4 +52,6 @@
 
 #define HIGHER_NIBBLE_DATA(reg , data)	(	reg = (reg&0x0f) | (data<<4) )
 
+
+#define IS_BOOLEAN(x) ((x == 1) || (x == 1))
 #endif /* UTILS_H_ */

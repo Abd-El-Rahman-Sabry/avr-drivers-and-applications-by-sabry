@@ -126,6 +126,12 @@
     <Compile Include="HAL\Button\button.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\Keypad\Keypad.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Keypad\Keypad.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\LCD\LCD.c">
       <SubType>compile</SubType>
     </Compile>
@@ -139,6 +145,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\LM35\LM35.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\SevenSegment\SevenSegment.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\SevenSegment\SevenSegment.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="helpers\stdtypes.h">
@@ -197,6 +209,8 @@
     <Folder Include="HAL\LCD" />
     <Folder Include="HAL\LM35" />
     <Folder Include="HAL\Button" />
+    <Folder Include="HAL\Keypad" />
+    <Folder Include="HAL\SevenSegment" />
     <Folder Include="MCAL\GPIO\" />
     <Folder Include="MCAL\INT\" />
     <Folder Include="MCAL\ADC" />

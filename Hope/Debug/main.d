@@ -22,7 +22,10 @@ main.d main.o: .././main.c .././MCAL/GPIO/GPIO.h \
  .././MCAL/ADC/../../MCAL_REG/mem_map.h .././HAL/LM35/LM35.h \
  .././HAL/LM35/../../MCAL/ADC/ADC.h \
  .././HAL/LM35/../../helpers/stdtypes.h .././HAL/Button/button.h \
- .././HAL/Button/../../MCAL/GPIO/GPIO.h
+ .././HAL/Button/../../MCAL/GPIO/GPIO.h .././MCAL/UART/UART.h \
+ .././MCAL/UART/../../helpers/stdtypes.h \
+ .././MCAL/UART/../../helpers/utils.h \
+ .././MCAL/UART/../../MCAL_REG/mem_map.h .././MCAL/UART/UART_config.h
 
 .././MCAL/GPIO/GPIO.h:
 
@@ -85,3 +88,13 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././HAL/Button/button.h:
 
 .././HAL/Button/../../MCAL/GPIO/GPIO.h:
+
+.././MCAL/UART/UART.h:
+
+.././MCAL/UART/../../helpers/stdtypes.h:
+
+.././MCAL/UART/../../helpers/utils.h:
+
+.././MCAL/UART/../../MCAL_REG/mem_map.h:
+
+.././MCAL/UART/UART_config.h:

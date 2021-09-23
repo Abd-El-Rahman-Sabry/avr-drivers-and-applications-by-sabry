@@ -44,5 +44,6 @@ typedef struct {
 	uint8 cool_down;
 }Button;
 void Button_config(Button *btn , GPIO_port_name_t port_name , uint8 pin, Button_event btn_event , void (*btn_callback)(void) , Button_Sense sense);
+void Button_listen(Button *btn);
 
 #endif /* BUTTON_H_ */

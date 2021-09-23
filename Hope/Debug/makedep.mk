@@ -4,9 +4,13 @@
 
 HAL\Button\button.c
 
+HAL\Keypad\Keypad.c
+
 HAL\LCD\LCD.c
 
 HAL\LM35\LM35.c
+
+HAL\SevenSegment\SevenSegment.c
 
 main.c
 

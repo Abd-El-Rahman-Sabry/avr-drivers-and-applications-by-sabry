@@ -70,6 +70,7 @@ void GPIO_init_port_clear_mask(GPIO_port_name_t reg , uint8 mask);
 //write functions 
 
 GPIO_state_t GPIO_write_pin(GPIO_port_name_t reg , uint8 pin , uint8 data);
+GPIO_state_t GPIO_toggle_pin(GPIO_port_name_t reg , uint8 pin);
 void GPIO_write_port(GPIO_port_name_t reg , uint8 data);
 void GPIO_port_set_mask(GPIO_port_name_t reg , uint8 mask);
 void GPIO_port_clear_mask(GPIO_port_name_t reg , uint8 mask);
