@@ -180,6 +180,15 @@
     <Compile Include="MCAL\INT\EXT_INT.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\SPI\SPI.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\SPI\SPI.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\SPI\SPI_config.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL\TIMER\TIMER.c">
       <SubType>compile</SubType>
     </Compile>
@@ -204,6 +213,12 @@
     <Compile Include="MCAL_REG\mem_map.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="SERVICES\UART_Services\UART_Services.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SERVICES\UART_Services\UART_Services.h">
+      <SubType>compile</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="HAL\LCD" />
@@ -214,6 +229,7 @@
     <Folder Include="MCAL\GPIO\" />
     <Folder Include="MCAL\INT\" />
     <Folder Include="MCAL\ADC" />
+    <Folder Include="MCAL\SPI" />
     <Folder Include="MCAL\UART" />
     <Folder Include="MCAL\TIMER" />
     <Folder Include="MCAL_REG" />
@@ -221,6 +237,8 @@
     <Folder Include="helpers" />
     <Folder Include="MCAL" />
     <Folder Include="SERVICES" />
+    <Folder Include="SERVICES\UART_Services" />
+    <Folder Include="SERVICES\Timer_Services" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

@@ -41,13 +41,16 @@ SUBDIRS :=  \
 ../MCAL/GPIO/ \
 ../MCAL/INT/ \
 ../MCAL/ADC \
+../MCAL/SPI \
 ../MCAL/UART \
 ../MCAL/TIMER \
 ../MCAL_REG \
 ../HAL \
 ../helpers \
 ../MCAL \
-../SERVICES
+../SERVICES \
+../SERVICES/UART_Services \
+../SERVICES/Timer_Services
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
@@ -61,9 +64,11 @@ C_SRCS +=  \
 ../MCAL/ADC/ADC.c \
 ../MCAL/GPIO/GPIO.c \
 ../MCAL/INT/EXT_INT.c \
+../MCAL/SPI/SPI.c \
 ../MCAL/TIMER/TIMER.c \
 ../MCAL/TIMER/TIMER0.c \
-../MCAL/UART/UART.c
+../MCAL/UART/UART.c \
+../SERVICES/UART_Services/UART_Services.c
 
 
 PREPROCESSING_SRCS += 
@@ -82,9 +87,11 @@ main.o \
 MCAL/ADC/ADC.o \
 MCAL/GPIO/GPIO.o \
 MCAL/INT/EXT_INT.o \
+MCAL/SPI/SPI.o \
 MCAL/TIMER/TIMER.o \
 MCAL/TIMER/TIMER0.o \
-MCAL/UART/UART.o
+MCAL/UART/UART.o \
+SERVICES/UART_Services/UART_Services.o
 
 OBJS_AS_ARGS +=  \
 HAL/Button/button.o \
@@ -96,9 +103,11 @@ main.o \
 MCAL/ADC/ADC.o \
 MCAL/GPIO/GPIO.o \
 MCAL/INT/EXT_INT.o \
+MCAL/SPI/SPI.o \
 MCAL/TIMER/TIMER.o \
 MCAL/TIMER/TIMER0.o \
-MCAL/UART/UART.o
+MCAL/UART/UART.o \
+SERVICES/UART_Services/UART_Services.o
 
 C_DEPS +=  \
 HAL/Button/button.d \
@@ -110,9 +119,11 @@ main.d \
 MCAL/ADC/ADC.d \
 MCAL/GPIO/GPIO.d \
 MCAL/INT/EXT_INT.d \
+MCAL/SPI/SPI.d \
 MCAL/TIMER/TIMER.d \
 MCAL/TIMER/TIMER0.d \
-MCAL/UART/UART.d
+MCAL/UART/UART.d \
+SERVICES/UART_Services/UART_Services.d
 
 C_DEPS_AS_ARGS +=  \
 HAL/Button/button.d \
@@ -124,9 +135,11 @@ main.d \
 MCAL/ADC/ADC.d \
 MCAL/GPIO/GPIO.d \
 MCAL/INT/EXT_INT.d \
+MCAL/SPI/SPI.d \
 MCAL/TIMER/TIMER.d \
 MCAL/TIMER/TIMER0.d \
-MCAL/UART/UART.d
+MCAL/UART/UART.d \
+SERVICES/UART_Services/UART_Services.d
 
 OUTPUT_FILE_PATH +=Hope.elf
 
@@ -205,6 +218,13 @@ MCAL/INT/EXT_INT.o: ../MCAL/INT/EXT_INT.c
 	@echo Finished building: $<
 	
 
+MCAL/SPI/SPI.o: ../MCAL/SPI/SPI.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 MCAL/TIMER/TIMER.o: ../MCAL/TIMER/TIMER.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
@@ -220,6 +240,13 @@ MCAL/TIMER/TIMER0.o: ../MCAL/TIMER/TIMER0.c
 	
 
 MCAL/UART/UART.o: ../MCAL/UART/UART.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+SERVICES/UART_Services/UART_Services.o: ../SERVICES/UART_Services/UART_Services.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
