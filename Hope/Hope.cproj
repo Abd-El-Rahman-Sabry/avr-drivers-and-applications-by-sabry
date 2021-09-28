@@ -120,16 +120,19 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="HAL\Button\button.c">
+    <Compile Include="HAL\Keys\Button\button.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Button\button.h">
+    <Compile Include="HAL\Keys\Button\button.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Keypad\Keypad.c">
+    <Compile Include="HAL\Keys\Keypad\Keypad.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Keypad\Keypad.h">
+    <Compile Include="HAL\Keys\Keypad\Keypad.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Keys\Keys_config.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\LCD\LCD.c">
@@ -221,10 +224,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="HAL\Keys\Button\" />
+    <Folder Include="HAL\Keys\Keypad\" />
     <Folder Include="HAL\LCD" />
     <Folder Include="HAL\LM35" />
-    <Folder Include="HAL\Button" />
-    <Folder Include="HAL\Keypad" />
+    <Folder Include="HAL\Keys" />
     <Folder Include="HAL\SevenSegment" />
     <Folder Include="MCAL\GPIO\" />
     <Folder Include="MCAL\INT\" />

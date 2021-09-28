@@ -278,3 +278,8 @@ void LCD_clear_next_chars(uint8 n)
 	for(uint8 i = 0 ; i < n ; i++)
 		LCD_write_char(' ');
 }
+void LCD_string_at(uint8 row , uint8 col , uint8* str)
+{
+	LCD_go_to(row , col);
+	LCD_write_string(str);
+}

@@ -2,9 +2,9 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-HAL\Button\button.c
+HAL\Keys\Button\button.c
 
-HAL\Keypad\Keypad.c
+HAL\Keys\Keypad\Keypad.c
 
 HAL\LCD\LCD.c
 

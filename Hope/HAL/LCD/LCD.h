@@ -23,5 +23,6 @@ void LCD_write_number(uint32 n);
 void LCD_clear();
 void LCD_write_string(sint8 *str);
 void LCD_go_to(uint8 row , uint8 col);
+void LCD_string_at(uint8 row , uint8 col , uint8* str);
 void LCD_clear_next_chars(uint8 n);
 #endif

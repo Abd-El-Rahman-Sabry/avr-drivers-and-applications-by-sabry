@@ -28,7 +28,9 @@ main.d main.o: .././main.c .././MCAL/GPIO/GPIO.h \
  .././SERVICES/UART_Services/../../MCAL/UART/../../helpers/utils.h \
  .././SERVICES/UART_Services/../../MCAL/UART/../../MCAL_REG/mem_map.h \
  .././SERVICES/UART_Services/../../MCAL/UART/UART_config.h \
- .././MCAL/UART/UART.h
+ .././MCAL/UART/UART.h .././HAL/Keys/Keypad/Keypad.h \
+ .././HAL/Keys/Keypad/../../../MCAL/GPIO/GPIO.h \
+ .././HAL/Keys/Keypad/../Keys_config.h
 
 .././MCAL/GPIO/GPIO.h:
 
@@ -101,3 +103,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././SERVICES/UART_Services/../../MCAL/UART/UART_config.h:
 
 .././MCAL/UART/UART.h:
+
+.././HAL/Keys/Keypad/Keypad.h:
+
+.././HAL/Keys/Keypad/../../../MCAL/GPIO/GPIO.h:
+
+.././HAL/Keys/Keypad/../Keys_config.h:
