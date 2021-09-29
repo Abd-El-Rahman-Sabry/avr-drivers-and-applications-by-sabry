@@ -1,23 +1,17 @@
 /*
- * Hope.c
+ * Calculator.c
  *
- * Created: 9/9/2021 10:27:08 PM
- * Author : Abd-El-Rahman Sabry
+ * Created: 9/29/2021 9:58:54 AM
+ *  Author: Abd-El-Rahman Sabry
  */ 
 
-#include "MCAL/GPIO/GPIO.h"
-#include "MCAL/INT/EXT_INT.h"
-#include "MCAL/TIMER/TIMER.h"
-#include "HAL/LCD/LCD.h"
-#include "MCAL/ADC/ADC.h"
-#include "HAL/LM35/LM35.h"
-#include "SERVICES/UART_Services/UART_Services.h"
-#include "MCAL/UART/UART.h"
-#include "HAL/Keys/Keypad/Keypad.h"
+#include "../HAL/LCD/LCD.h"
 
 uint8 op1[5] , sign , op2[5];
 uint8 i = 0, j = 0 ;
 uint8 next_flag = 0;
+
+
 void keypad_callback(uint8 key)
 {
 	static uint8 pos  = 0;
@@ -35,25 +29,27 @@ void keypad_callback(uint8 key)
 			LCD_clear();
 			next_flag = 0;
 		}
-		LCD_write_char(key);
 		if(key >= '0' && key <= '9' && pos == 0 )
 		{
 
 			op1[i] = key -'0';
 			i++;
+			LCD_write_char(key);
 		}
 		else if(key <= '/' && key>= '+' || key == 'X')
 		{
 			sign = key;
 			pos = 2;
+			LCD_write_char(key);
 		}
-		else if(key >= '0' && key <= '9' && pos == 2)
+		else if(key >= '0' && key <= '9' && pos == 2 )
 		{
 			op2[j] = key - '0';
 			j++;
+			LCD_write_char(key);
 		}
-		 
-		 if(key == '=' )
+		
+		if(key == '=' )
 		{
 			uint16 o1 = 0 , o2 = 0 , s = 1;
 			
@@ -72,17 +68,17 @@ void keypad_callback(uint8 key)
 			switch(sign)
 			{
 				case '+':
-					r = o1+o2;
-					break;
+				r = o1+o2;
+				break;
 				case '-':
-					r = o1 - o2;
-					break;
+				r = o1 - o2;
+				break;
 				case 'X':
-					r = o1*o2;
-					break;
+				r = o1*o2;
+				break;
 				case '/':
-					r = o1/o2;
-					break;
+				r = o1/o2;
+				break;
 			}
 			LCD_go_to(2,0);
 			LCD_write_number(r);
@@ -95,15 +91,3 @@ void keypad_callback(uint8 key)
 	
 }
 
-
-
-int main(void)
-{
-	LCD_Init();
-	Keypad keypad;
-	Keypad_config(&keypad , GPIO_A , ON_KEY_PRESSED , keypad_callback);
-	while(1)
-	{
-		Keypad_listen(&keypad);
-	}
-}

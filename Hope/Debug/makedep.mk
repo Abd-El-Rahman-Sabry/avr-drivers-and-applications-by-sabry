@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+Calculator\Calculator.c
+
 HAL\Keys\Button\button.c
 
 HAL\Keys\Keypad\Keypad.c
@@ -25,6 +27,8 @@ MCAL\SPI\SPI.c
 MCAL\TIMER\TIMER.c
 
 MCAL\TIMER\TIMER0.c
+
+MCAL\TWI\TWI.c
 
 MCAL\UART\UART.c
 
