@@ -38,7 +38,7 @@ This layer for exteranl hardware componenets that will be connected with the mic
 - [X] :tada: LCD 
 - [X] :tada: Button
 - [X] :tada: LM35
-- [ ] Keypad
+- [X] :tada: Keypad
 - [ ] Seven Segments
 - [ ] Graphical LCD
 
