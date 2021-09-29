@@ -41,6 +41,9 @@ This layer for exteranl hardware componenets that will be connected with the mic
 - [X] :tada: Keypad
 - [ ] Seven Segments
 - [ ] Graphical LCD
+- [ ] IR
+- [ ] Servo Motor
+- [ ] Bluetooth
 
 #### The Services Layer 
 This Layer used to simplify the use of the main peripherals like Generating PWM and Serial Communications
