@@ -44,6 +44,7 @@ This layer for exteranl hardware componenets that will be connected with the mic
 - [ ] IR
 - [ ] Servo Motor
 - [ ] Bluetooth
+- [ ] Ultrasonic
 
 #### The Services Layer 
 This Layer used to simplify the use of the main peripherals like Generating PWM and Serial Communications
