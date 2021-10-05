@@ -37,4 +37,7 @@ void	UART_tx_interrupt_disable();
 void	UART_tx_set_callback(void (*txCallback)(void));
 void	UART_rx_set_callback(void (*rxCallback)(void));
 
+
+uint8 UART_receive_byte_direct(void);
+void UART_send_byte_direct(uint8 data);
 #endif /* UART_H_ */

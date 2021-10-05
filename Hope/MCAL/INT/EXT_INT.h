@@ -49,6 +49,8 @@ typedef struct{
 
 INT_error_t EXT_set_interrupt(EXT_int_pin_t pin);
 INT_error_t EXT_clear_interrupt(EXT_int_pin_t pin);
+INT_error_t EXT_set_isc(EXT_int_pin_t pin , EXT_int_sense_control_t ctr);
+INT_error_t EXT_set_callback(EXT_int_pin_t pin , void (*isr)(void));
 INT_error_t EXT_interrupt_init(EXT_config_pin *obj);
 
 //Validate

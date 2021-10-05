@@ -123,12 +123,37 @@ Interrupt Sensing Control (ISC)
 	
 #define TCNT1H (*((volatile uint8*)0x4D)) 
 #define TCNT1L (*((volatile uint8*)0x4C))
+#define TCNT1 (*((volatile uint16*)0x4C))
+
 #define OCR1AH (*((volatile uint8*)0x4B))
 #define OCR1AL (*((volatile uint8*)0x4A))
+#define OCR1A (*((volatile uint16*)0x4A))
+
+
 #define OCR1BH (*((volatile uint8*)0x49)) 
 #define OCR1BL (*((volatile uint8*)0x48))
+#define OCR1B (*((volatile uint16*)0x48))
+
+
 #define ICR1H  (*((volatile uint8*)0x47))
 #define ICR1L  (*((volatile uint8*)0x46))     
+#define ICR1  (*((volatile uint16*)0x46))
+
+//TIMER0 REGISERS
+
+#define TCCR2 (*((volatile uint8*)0x45))
+#define CS20  0
+#define CS21  1
+#define CS22  2
+#define WGM20 6
+#define WGM21 3
+#define COM20 4
+#define COM21 5
+#define FOC20 7
+
+
+#define TCNT2 (*((volatile uint8*)0x44))
+#define OCR2  (*((volatile uint8*)0x43))
 
 
 //Timer interrupt vectors
@@ -251,6 +276,12 @@ UART
 #define    UCSZ2        2
 #define    RXB8         1
 #define    TXB8         0
+
+
+#define USART_RXC_vect		__vector_13
+#define USART_UDRE_vect		__vector_14
+#define USART_TXC_vect		__vector_15
+
 /******************************************************************************/
 
 

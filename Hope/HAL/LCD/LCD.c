@@ -255,11 +255,18 @@ void LCD_go_to(uint8 row , uint8 col)
 		}
 	}
 }
-void LCD_write_number(uint32 n)
+void LCD_write_number(sint32 n)
 {
 	uint8 i = 0 , j , digits[10];
+	if(n < 0)
+	{
+		n = -n;
+		lcd_write_data('-');
+	}
+		
 	if(n == 0)
 		lcd_write_data('0');
+
 	else {
 		while(n)
 		{

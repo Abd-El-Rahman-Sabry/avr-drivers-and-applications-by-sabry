@@ -194,6 +194,121 @@ INT_error_t EXT_interrupt_init(EXT_config_pin *obj)
 	return EXT_SUCCESS;
 }
 
+INT_error_t EXT_set_isc(EXT_int_pin_t pin , EXT_int_sense_control_t ctr)
+{
+	if(NOT_VALID_ISC(ctr) || NOT_VALID_INT_PIN(pin))
+	{
+		return EXT_FAIL;
+	}
+	
+	if(pin == EXT_INT0)
+	{
+			switch(ctr){
+				case EXT_low_level_isc:
+				{
+					CLEAR_BIT(MCUCR , ISC00);
+					CLEAR_BIT(MCUCR , ISC01);
+					break;
+				}
+				case EXT_logic_change_isc:
+				{
+					SET_BIT(MCUCR , ISC00);
+					CLEAR_BIT(MCUCR , ISC01);
+					break;
+				}
+				case EXT_falling_edge_isc:
+				{
+					CLEAR_BIT(MCUCR , ISC00);
+					SET_BIT(MCUCR , ISC01);
+					break;
+				}
+				case EXT_rising_edge_isc:
+				{
+					SET_BIT(MCUCR , ISC00);
+					SET_BIT(MCUCR , ISC01);
+					break;
+				}
+			}
+	}
+	
+	else if(pin == EXT_INT1)
+	{
+			switch(ctr){
+				case EXT_low_level_isc:
+				{
+					CLEAR_BIT(MCUCR , ISC10);
+					CLEAR_BIT(MCUCR , ISC11);
+					break;
+				}
+				case EXT_logic_change_isc:
+				{
+					SET_BIT(MCUCR , ISC10);
+					CLEAR_BIT(MCUCR , ISC11);
+					break;
+				}
+				case EXT_falling_edge_isc:
+				{
+					CLEAR_BIT(MCUCR , ISC10);
+					SET_BIT(MCUCR , ISC11);
+					break;
+				}
+				case EXT_rising_edge_isc:
+				{
+					SET_BIT(MCUCR , ISC10);
+					SET_BIT(MCUCR , ISC11);
+					break;
+				}
+
+			}
+	}
+	else if(pin == EXT_INT2){
+		switch(ctr){
+			case EXT_falling_edge_isc:
+			{
+				CLEAR_BIT(MCUCSR , ISC2);
+				break;
+			}
+			case EXT_rising_edge_isc:
+			{
+				SET_BIT(MCUCSR , ISC2);
+				break;
+			}
+		}
+	}
+	
+	return EXT_SUCCESS;
+}
+
+
+INT_error_t EXT_set_callback(EXT_int_pin_t pin , void (*isr)(void))
+{
+	if(NOT_VALID_INT_PIN(pin))
+		return EXT_FAIL;
+	
+	if(pin == EXT_INT0)
+	{
+		if(isr != NULLPTR)
+		{
+			EXT_int0_isr = isr;
+		}
+	}
+	else if(pin == EXT_INT1)
+	{
+		if(isr != NULLPTR)
+		{
+			EXT_int1_isr = isr;
+		}
+	}
+	else if(pin == EXT_INT2)
+	{
+		if(isr != NULLPTR)
+		{
+			EXT_int2_isr = isr;
+		}
+	}
+	
+	return EXT_SUCCESS;
+}
 
 ISR(INT0_vect)
 {

@@ -1,0 +1,43 @@
+This is Sabry\textquotesingle{}s embedded systems repo
+
+
+
+\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysubsubsection{أحمد شوقي \+:}\label{md__r_e_a_d_m_e_autotoc_md1}
+\begin{quote}
+دقات قلب المرء قائلةً له\+: إن الحياةَ دقائقٌ وثواني، \end{quote}
+فارفع لنفسك بعد موتك ذِكرها، الذِكرُ للإنسان .. عُمرٌ ثاني !
+
+\hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysubsection{The Static Design Architecture}\label{md__r_e_a_d_m_e_autotoc_md2}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysubsubsection{The Microcontroller Abstraction Layer}\label{md__r_e_a_d_m_e_autotoc_md3}
+This layer has two main parts one for memory mapping to map the registers and the vector table into macros ~\newline
+ 
+
+The higher one is to make drivers for The main Peripherals of the MCU
+\begin{DoxyItemize}
+\item \mbox{[}X\mbox{]} \+:tada\+: GPIO
+\item \mbox{[}X\mbox{]} \+:tada\+: External Interrupts
+\item \mbox{[}X\mbox{]} \+:tada\+: Timers
+\item \mbox{[}X\mbox{]} \+:tada\+: ADC
+\item \mbox{[}X\mbox{]} \+:tada\+: EEPROM
+\item \mbox{[}X\mbox{]} \+:tada\+: UART
+\item \mbox{[}X\mbox{]} \+:tada\+: SPI
+\item \mbox{[} \mbox{]} I2C
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysubsubsection{The Available MCAL now in the repo}\label{md__r_e_a_d_m_e_autotoc_md4}
+
+\begin{DoxyItemize}
+\item \mbox{[}X\mbox{]} \+:tada\+: AVR
+\item \mbox{[} \mbox{]} ARM
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysubsubsection{The Hardware Abstraction Layer}\label{md__r_e_a_d_m_e_autotoc_md5}
+This layer for exteranl hardware componenets that will be connected with the microcontroller Like LCDs and Buttons ..etc ~\newline
+ ~\newline
+
+\begin{DoxyItemize}
+\item \mbox{[}X\mbox{]} \+:tada\+: LCD
+\item \mbox{[}X\mbox{]} \+:tada\+: Button
+\item \mbox{[}X\mbox{]} \+:tada\+: LM35
+\item \mbox{[}X\mbox{]} \+:tada\+: Keypad
+\item \mbox{[} \mbox{]} Seven Segments
+\item \mbox{[} \mbox{]} Graphical LCD
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysubsubsection{The Services Layer}\label{md__r_e_a_d_m_e_autotoc_md6}
+This Layer used to simplify the use of the main peripherals like Generating PWM and Serial Communications\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysubsubsection{The Application Layer}\label{md__r_e_a_d_m_e_autotoc_md7}
+The Layer where the application is build 

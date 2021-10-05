@@ -11,11 +11,14 @@
 
 #include "../../MCAL/UART/UART.h"
 
+#define RX_ASYNC_BUFFER_SIZE 20
 
-void UART_send_string(const uint8 *str);
-void UART_receive_string(uint8 *str);
-void UART_send_string_SUM(const uint8 *str);
-uint8 UART_receive_string_SUM( uint8 *str);
-
-
+void serialWrite(const sint8 *str);
+void serialRead(sint8 *str);
+void serialWrite_SUM(const sint8 *str);
+uint8 serialRead_SUM( sint8 *str);
+void serialWrite_async(const sint8 *str);
+uint8 serialRead_async(sint8 *str);
+uint8 asyncRxCompleteFlag();
+void setRxBufferSize(uint8 size);
 #endif /* UART_SERVICES_H_ */

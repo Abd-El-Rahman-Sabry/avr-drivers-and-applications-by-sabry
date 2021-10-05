@@ -121,15 +121,40 @@ void UART_tx_interrupt_disable()
 
 void UART_tx_set_callback(void (*txCallback)(void))
 {
-	if(!txCallback)
+	if(txCallback != NULLPTR)
 	{
 		uart_tx_callback = txCallback;
 	}
 }
 void UART_rx_set_callback(void (*rxCallback)(void))
 {
-	if(!rxCallback)
+	if(rxCallback != NULLPTR)
 	{
 		uart_rx_callback = rxCallback;
 	}
+}
+void UART_send_byte_direct(uint8 data)
+{
+	UDR = data;
+}
+
+uint8 UART_receive_byte_direct(void)
+{
+	return UDR;
+}
+
+ISR(USART_RXC_vect)
+{
+	if(uart_rx_callback != NULLPTR)
+	{
+		uart_rx_callback();
+	}
+}
+
+ISR(USART_TXC_vect)
+{
+		if(uart_tx_callback != NULLPTR)
+		{
+			uart_tx_callback();
+		}
 }
