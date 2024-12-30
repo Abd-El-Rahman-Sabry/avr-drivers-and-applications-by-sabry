@@ -176,25 +176,134 @@ This layer integrates all lower layers to build specific applications. Example u
 - **Temperature Monitoring with LM35**  
 - **Serial Communication Tools**  
 
-**Example:**  
-```c
-LCD_init();
-UART_init();
-LM35_init();
+Here's the extended README with the example added and a text-based diagram for the application:
 
-while (1) {
-    float temp = LM35_get_temp();
-    LCD_print_float(temp);
-    UART_send_float(temp);
+---
+
+### Example Application: Calculator with LCD and Keypad  
+
+This example demonstrates a simple calculator application built on the application layer. The calculator uses:  
+- **LCD:** To display numbers, operators, and results.  
+- **Keypad:** For user input (numbers and operations).  
+
+#### Code Example  
+
+```c
+#include "MCAL/GPIO/GPIO.h"
+#include "MCAL/INT/EXT_INT.h"
+#include "MCAL/TIMER/TIMER.h"
+#include "HAL/LCD/LCD.h"
+#include "MCAL/ADC/ADC.h"
+#include "HAL/LM35/LM35.h"
+#include "SERVICES/UART_Services/UART_Services.h"
+#include "MCAL/UART/UART.h"
+#include "HAL/Keys/Keypad/Keypad.h"
+
+void keypad_callback(uint8 key);
+
+int main(void) {
+    LCD_Init();
+    Keypad keypad;
+    Keypad_config(&keypad, GPIO_A, ON_KEY_PRESSED, keypad_callback);
+    while (1) {
+        Keypad_listen(&keypad);
+    }
 }
-```  
+```
+
+**Keypad Callback Implementation:**
+```c
+#include "../HAL/LCD/LCD.h"
+
+uint8 op1[5], sign, op2[5];
+uint8 i = 0, j = 0;
+uint8 next_flag = 0;
+
+void keypad_callback(uint8 key) {
+    static uint8 pos = 0;
+    if (key == 'c') {
+        LCD_clear();
+        pos = 0;
+        i = 0;
+        j = 0;
+    } else {
+        if (next_flag) {
+            LCD_clear();
+            next_flag = 0;
+        }
+        if (key >= '0' && key <= '9' && pos == 0) {
+            op1[i] = key - '0';
+            i++;
+            LCD_write_char(key);
+        } else if (key <= '/' && key >= '+' || key == 'X') {
+            sign = key;
+            pos = 2;
+            LCD_write_char(key);
+        } else if (key >= '0' && key <= '9' && pos == 2) {
+            op2[j] = key - '0';
+            j++;
+            LCD_write_char(key);
+        }
+        if (key == '=') {
+            uint16 o1 = 0, o2 = 0, s = 1;
+            for (uint8 x = i; x > 0; x--) {
+                o1 += op1[x - 1] * s;
+                s *= 10;
+            }
+            s = 1;
+            for (uint8 x = j; x > 0; x--) {
+                o2 += op2[x - 1] * s;
+                s *= 10;
+            }
+            uint16 r;
+            switch (sign) {
+                case '+': r = o1 + o2; break;
+                case '-': r = o1 - o2; break;
+                case 'X': r = o1 * o2; break;
+                case '/': r = o1 / o2; break;
+            }
+            LCD_go_to(2, 0);
+            LCD_write_number(r);
+            next_flag = 1;
+            pos = 0;
+            i = 0;
+            j = 0;
+        }
+    }
+}
+```
+
+---
+
+#### Text-Based Diagram  
+
+```plaintext
++-------------------+      +-------------------+
+|       Keypad      |      |       LCD         |
+|   [1][2][3][C]    |      |   12 + 34 = 46    |
+|   [4][5][6][X]    |      +-------------------+
+|   [7][8][9][/]    |
+|   [0][+][-][=]    |
++-------------------+
+
+  User Inputs --> Keypad --> Microcontroller Logic
+                                  |
+                                  v
+                        Result Displayed on LCD
+```
+
+This diagram represents the flow of data between the user, keypad, microcontroller logic, and LCD.  
+
+---
+
+Let me know if you need further refinements!
 
 ---
 
 ## Contribution  
 
-Contributions are welcome! Please follow the [contributing guidelines](./CONTRIBUTING.md).  
+Contributions are welcome!
+
+Abd-El-Rahman Sabry 🫀 
 
 ---
-
-Let me know if this is aligned with your expectations or if you'd like further refinements!
