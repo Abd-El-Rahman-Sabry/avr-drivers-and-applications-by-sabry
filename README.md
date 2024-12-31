@@ -1,6 +1,3 @@
-# EmbeddedSabryHub
----
-
 # AVR Microcontroller Drivers Project  
 
 This project is a comprehensive driver library for AVR microcontrollers. It includes all abstraction layers, from the lowest hardware-specific level to application-ready APIs. The drivers are modular, reusable, and designed for ease of integration into various projects.  
