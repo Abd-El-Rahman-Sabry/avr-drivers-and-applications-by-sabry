@@ -296,9 +296,7 @@ This diagram represents the flow of data between the user, keypad, microcontroll
 
 ---
 
-Let me know if you need further refinements!
 
----
 
 ## Contribution  
 
